@@ -1,3 +1,5 @@
+![Screenshot](https://raw.githubusercontent.com/phorque/rmc-extreme-player/master/screenshot.png)
+
 # rmc-extreme-player
 
 CLI player for RMC Découverte replay
