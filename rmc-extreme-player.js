@@ -7,7 +7,7 @@ const shellescape = require('shell-escape');
 const process = require('process');
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: true, executablePath: process.env.RMC_CHROME_BIN_PATH || '/usr/bin/google-chrome' });
+  const browser = await puppeteer.launch({ headless: true, executablePath: process.env.RMC_CHROME_BIN_PATH || 'google-chrome' });
   const page = await browser.newPage();
   await page.goto("http://rmcdecouverte.bfmtv.com/mediaplayer-replay/");
 
