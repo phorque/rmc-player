@@ -2,8 +2,7 @@
 
 const puppeteer = require('puppeteer');
 const inquirer = require('inquirer');
-const exec = require('child_process').exec;
-const shellescape = require('shell-escape');
+const spawn = require('child_process').spawn;
 const process = require('process');
 
 (async () => {
@@ -41,7 +40,10 @@ const process = require('process');
   mediaUrlFetcher.then(async (url) => {
     await browser.close();
     await new Promise((resolve) => {
-      exec(`${shellescape([process.env.RMC_PLAYER_BIN_PATH || 'mplayer', url])} &>/dev/null`, resolve)
+      spawn(process.env.RMC_PLAYER_BIN_PATH || 'mplayer', [url], {
+        stdio: "inherit",
+        stderr: "inherit"
+      }).on('exit', resolve);
     })
   })
 })();
