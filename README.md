@@ -1,4 +1,4 @@
-![Screenshot](https://raw.githubusercontent.com/phorque/rmc-player/master/screenshot.png)
+![Screenshot](https://github.com/phorque/rmc-player/blob/master/screenshot.png)
 
 # rmc-player
 
