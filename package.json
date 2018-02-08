@@ -1,0 +1,24 @@
+{
+  "name": "rmc-extreme-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "videodirectotron": "index.js"
+  },
+  "dependencies": {
+    "inquirer": "^5.1.0",
+    "puppeteer": "^1.0.0",
+    "shell-escape": "^0.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phorque/rmc-extreme-player"
+  },
+  "author": "Victor Goya",
+  "license": "ISC"
+}
