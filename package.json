@@ -1,10 +1,10 @@
 {
-  "name": "rmc-extreme-player",
+  "name": "rmc-player",
   "version": "1.0.3",
   "description": "",
-  "main": "rmc-extreme-player.js",
+  "main": "rmc-player.js",
   "bin": {
-    "rmc-extreme-player": "rmc-extreme-player.js"
+    "rmc-player": "rmc-player.js"
   },
   "dependencies": {
     "inquirer": "^5.1.0",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/phorque/rmc-extreme-player"
+    "url": "https://github.com/phorque/rmc-player"
   },
   "author": "Victor Goya",
   "license": "ISC"

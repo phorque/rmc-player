@@ -1,12 +1,12 @@
-![Screenshot](https://raw.githubusercontent.com/phorque/rmc-extreme-player/master/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/phorque/rmc-player/master/screenshot.png)
 
-# rmc-extreme-player
+# rmc-player
 
 CLI player for RMC Découverte replay
 
 ## Installation
 
-`npm install rmc-extreme-player -g` or `yarn global add rmc-extreme-player`
+`npm install rmc-player -g` or `yarn global add rmc-player`
 
 ## Requirements
 
