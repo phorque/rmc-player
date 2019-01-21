@@ -11,9 +11,13 @@ const process = require('process');
   await page.goto("http://rmcdecouverte.bfmtv.com/mediaplayer-replay/");
 
   let replayLinks = []
-  for (let replayLink of (await page.$$(".bloc-rub-video article.art-c .art-body a"))) {
+  for (let replayLink of (await page.$$("[class*='image']"))) {
+    if ((await replayLink.$("p")) == null) {
+      continue;
+    }
+
     replayLinks.push({
-      name: await (await (await replayLink.$("h2")).getProperty("innerText")).jsonValue(),
+      name: (await (await (await replayLink.$("[class*='infos']")).getProperty("innerText")).jsonValue()).toString().replace(/(?:\r\n|\r|\n)+/g, ' : '),
       value: await (await replayLink.getProperty("href")).jsonValue()
     });
   }
@@ -29,7 +33,7 @@ const process = require('process');
 
   const mediaUrlFetcher = new Promise((resolve) => {
     page.on('request', interceptedRequest => {
-      if (interceptedRequest.url().match(/http:\/\/hlsbfmtoken-a.akamaihd.net/)) {
+      if (interceptedRequest.url().match(/https:\/\/hlsbfmtoken-a.akamaihd.net/)) {
         resolve(interceptedRequest.url());
       }
       interceptedRequest.continue();
@@ -40,7 +44,7 @@ const process = require('process');
   mediaUrlFetcher.then(async (url) => {
     await browser.close();
     await new Promise((resolve) => {
-      spawn(process.env.RMC_PLAYER_BIN_PATH || 'mplayer', [url], {
+      spawn(process.env.RMC_PLAYER_BIN_PATH || 'vlc', [url], {
         stdio: "inherit",
         stderr: "inherit"
       }).on('exit', resolve);
